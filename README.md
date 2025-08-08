@@ -2,6 +2,15 @@
 
 A command-line tool to help solve Wordle-style word puzzles by suggesting likely candidate words based on user feedback for each guess.
 
+> ### Author's remarks
+> I created this tool because I found myself manually calculating the best guesses during Wordle games. So I thought why not automate it? I ended up spending about two hours building a simple algorithm that uses letter frequency data (sourced from [this chart](https://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html)) to provide solid suggestions.
+>
+> My manual process was about trying to use the most frequent letters in the first couple of guesses, so I wanted to preserve that strategy for the user. Instead of automating the whole thought process, I focused on removing the tedious parts, specifically, tracking which yellow letters don’t go where, and which green letters stay fixed.
+>
+> The script generates permutations of valid letters, keeping green letters locked in place and shifting yellow letters into new positions each time, ensuring all hints are respected. This way, you can concentrate on optimizing your next move rather than handling the repetitive logic.
+>
+> For fun, I also included an optional feature to fetch real word lists from the web, which is enabled by default. You can disable it using the `--disable-fetch` flag.
+
 ## Features
 
 * Dynamically updates suggestions based on **green**, **yellow**, and **gray** letter feedback.
